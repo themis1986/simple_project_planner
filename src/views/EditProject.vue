@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="updateProject">
     <label>Title:</label>
     <input v-model="title" type="text" required />
     <label>Details:</label>
@@ -17,6 +17,17 @@ export default {
       details: "",
       uri: "http://localhost:3000/projects/" + this.id,
     };
+  },
+  methods: {
+    updateProject() {
+      fetch(this.uri, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: this.title, details: this.details }),
+      })
+        .then(() => this.$router.push("/"))
+        .catch((err) => console.log(err));
+    },
   },
   mounted() {
     fetch(this.uri)
