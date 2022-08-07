@@ -2,7 +2,7 @@
   <div class="home">
     <FilterNav @filterChange="current = $event" :current="current" />
     <div class="" v-if="projects.length">
-      <div class="" v-for="project in projects" :key="project.id">
+      <div class="" v-for="project in filteredProjects" :key="project.id">
         <SingleProject
           :project="project"
           @delete="handleDelete($event)"
@@ -26,6 +26,15 @@ export default {
       projects: [],
       current: "all",
     };
+  },
+  computed: {
+    filteredProjects() {
+      if (this.current === "completed")
+        return this.projects.filter((project) => project.complete === true);
+      if (this.current === "ongoing")
+        return this.projects.filter((project) => project.complete === false);
+      return this.projects;
+    },
   },
   methods: {
     handleDelete(id) {
