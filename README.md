@@ -3,11 +3,13 @@
 ## Project setup
 ```
 npm install
+npm instal -g json-server
 ```
 
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+json-server -w ./data/db.json
 ```
 
 ### Compiles and minifies for production
