@@ -3,7 +3,7 @@
 ## Project setup
 ```
 npm install
-npm instal -g json-server
+npm install -g json-server
 ```
 
 ### Compiles and hot-reloads for development
