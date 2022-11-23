@@ -6,7 +6,7 @@ npm install
 npm install -g json-server
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development / starts local server
 ```
 npm run serve
 json-server -w ./data/db.json
